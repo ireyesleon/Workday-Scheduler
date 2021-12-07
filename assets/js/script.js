@@ -12,16 +12,18 @@ const d = new Date();
 let hour = d.getHours();
 console.log(hour)
 
-$(".time-block").each(function (){
-var rowsHour = parseInt(
-  $(this).attr("id").split("_")[0]
-);
+$(".row").each(function() {
+var rowsHour = parseInt($(this).attr("id"));
+console.log(rowsHour)
 
 if (rowsHour < hour) {
+  $( this ).removeClass( "present" );
+  $( this ).removeClass( "future" );
   $( this ).addClass( "past" );
 }
 else if (rowsHour === hour) {
   $( this ).removeClass( "past" );
+  $( this ).removeClass( "future" );
   $( this ).addClass( "present" );
 }
 else {
@@ -36,21 +38,19 @@ changeColor();
 //function to save the event
 saveEvent.on('click', function () {
   var newEvent = $(this).siblings(".notes").val()
-  console.log(newEvent);
   var timeEvent = $(this).parent().attr("id");
-  console.log(timeEvent);
   localStorage.setItem(timeEvent, newEvent);
 });
 
 
 //function to load values on refresh
-$(" #9_am .notes").val(localStorage.getItem("9_am"));
-$(" #10_am .notes").val(localStorage.getItem("10_am"));
-$(" #11_am .notes").val(localStorage.getItem("11_am"));
-$(" #12_pm .notes").val(localStorage.getItem("12_pm"));
-$(" #1_pm .notes").val(localStorage.getItem("1_pm"));
-$(" #2_pm .notes").val(localStorage.getItem("2_pm"));
-$(" #3_pm .notes").val(localStorage.getItem("3_pm"));
-$(" #4_pm .notes").val(localStorage.getItem("4_pm"));
-$(" #5_pm .notes").val(localStorage.getItem("5_pm"));
+$(" #9 .notes").val(localStorage.getItem("9"));
+$(" #10 .notes").val(localStorage.getItem("10"));
+$(" #11 .notes").val(localStorage.getItem("11"));
+$(" #12 .notes").val(localStorage.getItem("12"));
+$(" #13 .notes").val(localStorage.getItem("13"));
+$(" #14 .notes").val(localStorage.getItem("14"));
+$(" #15 .notes").val(localStorage.getItem("15"));
+$(" #16 .notes").val(localStorage.getItem("16"));
+$(" #17 .notes").val(localStorage.getItem("17"));
 })
