@@ -6,6 +6,7 @@ function updateTime () {
     var time = moment();
     $("#currentDay").text(time.format("LLLL"));
 } setInterval(updateTime, 1000);
+
 //function to change color
 function changeColor() {
 const d = new Date();
